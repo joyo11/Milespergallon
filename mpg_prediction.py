@@ -5,7 +5,7 @@ from sklearn.metrics import mean_squared_error, r2_score
 import matplotlib.pyplot as plt
 import pickle
 
-# Load the Auto MPG dataset (example dataset)
+# Load the Auto MPG dataset 
 url = "https://archive.ics.uci.edu/ml/machine-learning-databases/auto-mpg/auto-mpg.data"
 columns = ['mpg', 'cylinders', 'displacement', 'horsepower', 'weight', 'acceleration', 'model_year', 'origin', 'car_name']
 data = pd.read_csv(url, delim_whitespace=True, header=None, names=columns)
@@ -19,7 +19,7 @@ data = data.apply(pd.to_numeric, errors='ignore')
 
 data = data.dropna()
 
-# Feature and target separation
+# The Feature and target separation
 X = data.drop(columns=['mpg', 'car_name'])
 y = data['mpg']
 
@@ -44,12 +44,12 @@ model_filename = "mpg_model.pkl"
 with open(model_filename, 'wb') as f:
     pickle.dump(model, f)
 
-# Loading the saved model and make predictions
+# Loading the saved model and make prediction
 with open(model_filename, 'rb') as f:
     loaded_model = pickle.load(f)
 
 # Exampls
-new_data = [[6, 160, 110, 3000, 15, 1975, 1]]  # example input data (same structure as the training data)
+new_data = [[6, 160, 110, 3000, 15, 1975, 1]]  # Example data (same structure as the training data)
 predicted_mpg = loaded_model.predict(new_data)
 print(f'Predicted MPG for the new data: {predicted_mpg[0]}')
 
