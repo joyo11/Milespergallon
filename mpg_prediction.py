@@ -5,7 +5,7 @@ from sklearn.metrics import mean_squared_error, r2_score
 import matplotlib.pyplot as plt
 import pickle
 
-# Load the Auto MPG dataset 
+# Load Auto MPG dataset 
 url = "https://archive.ics.uci.edu/ml/machine-learning-databases/auto-mpg/auto-mpg.data"
 columns = ['mpg', 'cylinders', 'displacement', 'horsepower', 'weight', 'acceleration', 'model_year', 'origin', 'car_name']
 data = pd.read_csv(url, delim_whitespace=True, header=None, names=columns)
