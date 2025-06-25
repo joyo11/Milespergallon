@@ -19,7 +19,7 @@ data = data.apply(pd.to_numeric, errors='ignore')
 
 data = data.dropna()
 
-# The Feature and target separation
+# The Feature and the target separation
 X = data.drop(columns=['mpg', 'car_name'])
 y = data['mpg']
 
